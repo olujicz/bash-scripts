@@ -1,9 +1,9 @@
 #!/bin/bash
-# This script remove all installed packages wich contains word you enter
+# This script remove all installed packages which contains word you enter
 
 if [ -z "$1" ];
     then
-        echo "Type the word wich you want to remove all package containing it, followed by [ENTER]:"
+        echo "Type the word which you want to remove all package containing it, followed by [ENTER]:"
         read package_name
             if [ -z "$package_name" ]; then
                 echo "You have to type someting if you want to remove it :). "
