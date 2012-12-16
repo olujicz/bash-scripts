@@ -1,6 +1,6 @@
 #!/bin/bash
 # -*- coding: UTF-8 -*-
-# Script for dumping MySQL base automaticly using cron.
+# Script for dumping MySQL base automatically using cron.
 
 # exec test
 exec_test () {
@@ -16,28 +16,27 @@ filename1="$backup_folder/$database_name_$mydate.bck.sql"
 username="some"
 password="emos"
 
-
 # Logging
 exec 3>&1 4>&2
 trap 'exec 2>&4 1>&3' 0 1 2 3
 exec 1>>$backup_folder/$database_name.log 2>&1
-# Everything below will go to the log file:
-
+# Everything below will go to the log file
 
 dump_base () {
-		echo "###########################"
-		echo "STARTING on: $mytime"
-		echo "Base dumping..."
-	mysqldump -u$username -p$password $database_name > $filename1
+    echo "###########################"
+    echo "STARTING on: $mytime"
+    echo "Base dumping..."
+    mysqldump -u$username -p$password $database_name > $filename1
 }
 
 compress_base () {
 	echo "Compressing base..."
-gzip -f9 $filename1
+    gzip -f9 $filename1
+    # rm filename1
 }
 
 
 dump_base ; exec_test
 compress_base ; exec_test
 
-	echo "Done, quit!"
+echo "Done, quit!"
