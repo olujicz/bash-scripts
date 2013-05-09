@@ -11,9 +11,9 @@ sudo aptitude -y install fishfish
 sudo apt-get install git-core
 
 # configuration
-mkdir .config
+mkdir ~/.config
 cd ~/.config
-git clone https://github.com/mekanix/fish.git 
+git clone https://github.com/mekanix/fish.git
 
 # change shell
 chsh -s /usr/bin/fish
